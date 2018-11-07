@@ -1,0 +1,21 @@
+<hr>
+<h2 id="title-SSH项目总结"><a href="#title-SSH项目总结" class="headerlink" title="title: SSH项目总结"></a>title: SSH项目总结</h2><h1 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h1><p>ClassNotFoundException:org.springframework.web.context.ContextLoaderListenr，springcontext</p>
+<pre><code class="java">java.lang.ClassNotFoundException: org.springframework.web.context.ContextLoaderListener
+at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:<span class="number">1702</span>)
+at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:<span class="number">1547</span>)
+at org.apache.catalina.core.DefaultInstanceManager.loadClass(DefaultInstanceManager.java:<span class="number">532</span>)
+at org.apache.catalina.core.DefaultInstanceManager.loadClassMaybePrivileged(DefaultInstanceManager.java:<span class="number">514</span>)
+at org.apache.catalina.core.DefaultInstanceManager.newInstance(DefaultInstanceManager.java:<span class="number">142</span>)
+at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:<span class="number">4854</span>)
+at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:<span class="number">5434</span>)
+at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:<span class="number">150</span>)
+at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:<span class="number">1559</span>)
+at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:<span class="number">1549</span>)
+at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:<span class="number">334</span>)
+at java.util.concurrent.FutureTask.run(FutureTask.java:<span class="number">166</span>)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:<span class="number">1145</span>)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:<span class="number">615</span>)
+at java.lang.Thread.run(Thread.java:<span class="number">722</span>)
+
+</code></pre>
+<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>这个问题在TOMCAT中的spring-web的加载问题。主要是jar包并没有真正导入WEB-INF/lib中，一般做测试直接把环境配置的jar包放入这个lib中，但是做项目时会引用在build path 中选用user library，里面自己配置的spring-web……的jar包，所以需要再加一步操作，把jar导入WEB-INF/lib。需要的操作如图所示。右键单击自己的项目，点击properties-Deployment Assembly-add-java  build path entries添加自己需要的jar包，并且点击Apply<br>步骤图片如下所示<br><img src="/SSH/1.png" alt="avatar"></p>
