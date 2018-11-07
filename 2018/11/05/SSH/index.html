@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="关于ClassNotFoundException:org.springframework.web.context.ContextLoaderListenr，springcontext   title: SSH项目总结12345678910111213141516java.lang.ClassNotFoundException: org.springframework.web.context.Co">
+<meta name="description" content="关于ClassNotFoundException:org.springframework.web.context.ContextLoaderListenr，springcontext 12345678910111213141516java.lang.ClassNotFoundException: org.springframework.web.context.ContextLoaderListe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="靖坤的小博">
+<meta property="og:title" content="SSH项目总结">
 <meta property="og:url" content="http://yoursite.com/2018/11/05/SSH/index.html">
 <meta property="og:site_name" content="靖坤的小博">
-<meta property="og:description" content="关于ClassNotFoundException:org.springframework.web.context.ContextLoaderListenr，springcontext   title: SSH项目总结12345678910111213141516java.lang.ClassNotFoundException: org.springframework.web.context.Co">
+<meta property="og:description" content="关于ClassNotFoundException:org.springframework.web.context.ContextLoaderListenr，springcontext 12345678910111213141516java.lang.ClassNotFoundException: org.springframework.web.context.ContextLoaderListe">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-07T13:54:36.086Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/05/SSH/SSH/1.png">
+<meta property="og:updated_time" content="2018-11-07T13:59:06.360Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="靖坤的小博">
-<meta name="twitter:description" content="关于ClassNotFoundException:org.springframework.web.context.ContextLoaderListenr，springcontext   title: SSH项目总结12345678910111213141516java.lang.ClassNotFoundException: org.springframework.web.context.Co">
+<meta name="twitter:title" content="SSH项目总结">
+<meta name="twitter:description" content="关于ClassNotFoundException:org.springframework.web.context.ContextLoaderListenr，springcontext 12345678910111213141516java.lang.ClassNotFoundException: org.springframework.web.context.ContextLoaderListe">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/05/SSH/SSH/1.png">
 
 
 
@@ -125,7 +127,7 @@
 
 
 
-  <title> | 靖坤的小博</title>
+  <title>SSH项目总结 | 靖坤的小博</title>
   
 
 
@@ -289,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">SSH项目总结</h1>
         
 
         <div class="post-meta">
@@ -341,9 +343,8 @@
       
         <hr>
 <h1 id="关于ClassNotFoundException-org-springframework-web-context-ContextLoaderListenr，springcontext"><a href="#关于ClassNotFoundException-org-springframework-web-context-ContextLoaderListenr，springcontext" class="headerlink" title="关于ClassNotFoundException:org.springframework.web.context.ContextLoaderListenr，springcontext"></a>关于ClassNotFoundException:org.springframework.web.context.ContextLoaderListenr，springcontext</h1><hr>
-<hr>
-<h2 id="title-SSH项目总结"><a href="#title-SSH项目总结" class="headerlink" title=" title: SSH项目总结"></a> title: SSH项目总结</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">java.lang.ClassNotFoundException: org.springframework.web.context.ContextLoaderListener</span><br><span class="line">at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:<span class="number">1702</span>)</span><br><span class="line">at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:<span class="number">1547</span>)</span><br><span class="line">at org.apache.catalina.core.DefaultInstanceManager.loadClass(DefaultInstanceManager.java:<span class="number">532</span>)</span><br><span class="line">at org.apache.catalina.core.DefaultInstanceManager.loadClassMaybePrivileged(DefaultInstanceManager.java:<span class="number">514</span>)</span><br><span class="line">at org.apache.catalina.core.DefaultInstanceManager.newInstance(DefaultInstanceManager.java:<span class="number">142</span>)</span><br><span class="line">at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:<span class="number">4854</span>)</span><br><span class="line">at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:<span class="number">5434</span>)</span><br><span class="line">at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:<span class="number">150</span>)</span><br><span class="line">at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:<span class="number">1559</span>)</span><br><span class="line">at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:<span class="number">1549</span>)</span><br><span class="line">at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:<span class="number">334</span>)</span><br><span class="line">at java.util.concurrent.FutureTask.run(FutureTask.java:<span class="number">166</span>)</span><br><span class="line">at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:<span class="number">1145</span>)</span><br><span class="line">at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:<span class="number">615</span>)</span><br><span class="line">at java.lang.Thread.run(Thread.java:<span class="number">722</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h3><p>这个问题在TOMCAT中的spring-web的加载问题。主要是jar包并没有真正导入WEB-INF/lib中，一般做测试直接把环境配置的jar包放入这个lib中，但是做项目时会引用在build path 中选用user library，里面自己配置的spring-web……的jar包，所以需要再加一步操作，把jar导入WEB-INF/lib。需要的操作如图所示。右键单击自己的项目，点击properties-Deployment Assembly-add-java  build path entries添加自己需要的jar包，并且点击Apply</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">java.lang.ClassNotFoundException: org.springframework.web.context.ContextLoaderListener</span><br><span class="line">at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:<span class="number">1702</span>)</span><br><span class="line">at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:<span class="number">1547</span>)</span><br><span class="line">at org.apache.catalina.core.DefaultInstanceManager.loadClass(DefaultInstanceManager.java:<span class="number">532</span>)</span><br><span class="line">at org.apache.catalina.core.DefaultInstanceManager.loadClassMaybePrivileged(DefaultInstanceManager.java:<span class="number">514</span>)</span><br><span class="line">at org.apache.catalina.core.DefaultInstanceManager.newInstance(DefaultInstanceManager.java:<span class="number">142</span>)</span><br><span class="line">at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:<span class="number">4854</span>)</span><br><span class="line">at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:<span class="number">5434</span>)</span><br><span class="line">at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:<span class="number">150</span>)</span><br><span class="line">at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:<span class="number">1559</span>)</span><br><span class="line">at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:<span class="number">1549</span>)</span><br><span class="line">at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:<span class="number">334</span>)</span><br><span class="line">at java.util.concurrent.FutureTask.run(FutureTask.java:<span class="number">166</span>)</span><br><span class="line">at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:<span class="number">1145</span>)</span><br><span class="line">at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:<span class="number">615</span>)</span><br><span class="line">at java.lang.Thread.run(Thread.java:<span class="number">722</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h3><p>这个问题在TOMCAT中的spring-web的加载问题。主要是jar包并没有真正导入WEB-INF/lib中，一般做测试直接把环境配置的jar包放入这个lib中，但是做项目时会引用在build path 中选用user library，里面自己配置的spring-web……的jar包，所以需要再加一步操作，把jar导入WEB-INF/lib。需要的操作如图所示。右键单击自己的项目，点击properties-Deployment Assembly-add-java  build path entries添加自己需要的jar包，并且点击Apply<br>步骤图片如下所示<br><img src="/2018/11/05/SSH/SSH\1.png" alt=""></p>
 
       
     </div>
@@ -492,7 +493,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于ClassNotFoundException-org-springframework-web-context-ContextLoaderListenr，springcontext"><span class="nav-number">1.</span> <span class="nav-text">关于ClassNotFoundException:org.springframework.web.context.ContextLoaderListenr，springcontext</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#title-SSH项目总结"><span class="nav-number">1.1.</span> <span class="nav-text"> title: SSH项目总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题原因"><span class="nav-number">1.1.1.</span> <span class="nav-text">问题原因</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于ClassNotFoundException-org-springframework-web-context-ContextLoaderListenr，springcontext"><span class="nav-number">1.</span> <span class="nav-text">关于ClassNotFoundException:org.springframework.web.context.ContextLoaderListenr，springcontext</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题原因"><span class="nav-number">1.0.1.</span> <span class="nav-text">问题原因</span></a></li></ol></li></ol></div>
             
 
           </div>
