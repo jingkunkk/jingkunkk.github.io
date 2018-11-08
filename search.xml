@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[关于hexo如何上传本地图片]]></title>
+    <url>%2F2018%2F11%2F07%2F%E5%85%B3%E4%BA%8Ehexo%E5%A6%82%E4%BD%95%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%2F</url>
+    <content type="text"><![CDATA[步骤1 把主页配置文件_config.yml 里的post_asset_folder:这个选项设置为true 2 在你的hexo目录下执行这样一句话npm install hexo-asset-image –save，这是下载安装一个可以上传本地图片的插件，来自dalao：dalao的git 3 等待一小段时间后，再运行hexo n “xxxx”来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还有一个同名的文件夹 4 最后在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片： ![] (xxxx/1.PNG) 注意： xxxx是这个md文件的名字，也是同名文件夹的名字。只需要有文件夹名字即可，不需要有什么绝对路径。你想引入的图片就只需要放入xxxx这个文件夹内就好了，很像引用相对路径。 5 执行指令 hexo g -d]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[SSH项目总结]]></title>
+    <url>%2F2018%2F11%2F07%2FSSH-1%2F</url>
+    <content type="text"><![CDATA[关于ClassNotFoundException:org.springframework.web.context.ContextLoaderListenr，springcontext 12345678910111213141516java.lang.ClassNotFoundException: org.springframework.web.context.ContextLoaderListenerat org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1702)at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1547)at org.apache.catalina.core.DefaultInstanceManager.loadClass(DefaultInstanceManager.java:532)at org.apache.catalina.core.DefaultInstanceManager.loadClassMaybePrivileged(DefaultInstanceManager.java:514)at org.apache.catalina.core.DefaultInstanceManager.newInstance(DefaultInstanceManager.java:142)at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4854)at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5434)at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1559)at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1549)at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)at java.util.concurrent.FutureTask.run(FutureTask.java:166)at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)at java.lang.Thread.run(Thread.java:722) 问题原因这个问题在TOMCAT中的spring-web的加载问题。主要是jar包并没有真正导入WEB-INF/lib中，一般做测试直接把环境配置的jar包放入这个lib中，但是做项目时会引用在build path 中选用user library，里面自己配置的spring-web……的jar包，所以需要再加一步操作，把jar导入WEB-INF/lib。需要的操作如图所示。右键单击自己的项目，点击properties-Deployment Assembly-add-java build path entries添加自己需要的jar包，并且点击Apply步骤图片如下所示]]></content>
+      <categories>
+        <category>SSH</category>
+      </categories>
+      <tags>
+        <tag>SSH项目</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F11%2F07%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <categories>
+        <category>Testing</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+        <tag>hello world</tag>
+      </tags>
+  </entry>
+</search>

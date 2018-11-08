@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="SSH项目,">
 
 
 
@@ -80,6 +80,7 @@
 
 
 <meta name="description" content="关于ClassNotFoundException:org.springframework.web.context.ContextLoaderListenr，springcontext 12345678910111213141516java.lang.ClassNotFoundException: org.springframework.web.context.ContextLoaderListen">
+<meta name="keywords" content="SSH项目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSH项目总结">
 <meta property="og:url" content="http://yoursite.com/2018/11/07/SSH-1/index.html">
@@ -90,7 +91,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/11/07/SSH-1/2.PNG">
 <meta property="og:image" content="http://yoursite.com/2018/11/07/SSH-1/3.PNG">
 <meta property="og:image" content="http://yoursite.com/2018/11/07/SSH-1/4.PNG">
-<meta property="og:updated_time" content="2018-11-07T14:26:31.738Z">
+<meta property="og:updated_time" content="2018-11-08T13:17:58.544Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSH项目总结">
 <meta name="twitter:description" content="关于ClassNotFoundException:org.springframework.web.context.ContextLoaderListenr，springcontext 12345678910111213141516java.lang.ClassNotFoundException: org.springframework.web.context.ContextLoaderListen">
@@ -307,6 +308,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/SSH/" itemprop="url" rel="index">
+                    <span itemprop="name">SSH</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -315,6 +338,11 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
           
 
           
@@ -336,7 +364,7 @@
       
         <h1 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h1><p>ClassNotFoundException:org.springframework.web.context.ContextLoaderListenr，springcontext</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">java.lang.ClassNotFoundException: org.springframework.web.context.ContextLoaderListener</span><br><span class="line">at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:<span class="number">1702</span>)</span><br><span class="line">at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:<span class="number">1547</span>)</span><br><span class="line">at org.apache.catalina.core.DefaultInstanceManager.loadClass(DefaultInstanceManager.java:<span class="number">532</span>)</span><br><span class="line">at org.apache.catalina.core.DefaultInstanceManager.loadClassMaybePrivileged(DefaultInstanceManager.java:<span class="number">514</span>)</span><br><span class="line">at org.apache.catalina.core.DefaultInstanceManager.newInstance(DefaultInstanceManager.java:<span class="number">142</span>)</span><br><span class="line">at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:<span class="number">4854</span>)</span><br><span class="line">at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:<span class="number">5434</span>)</span><br><span class="line">at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:<span class="number">150</span>)</span><br><span class="line">at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:<span class="number">1559</span>)</span><br><span class="line">at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:<span class="number">1549</span>)</span><br><span class="line">at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:<span class="number">334</span>)</span><br><span class="line">at java.util.concurrent.FutureTask.run(FutureTask.java:<span class="number">166</span>)</span><br><span class="line">at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:<span class="number">1145</span>)</span><br><span class="line">at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:<span class="number">615</span>)</span><br><span class="line">at java.lang.Thread.run(Thread.java:<span class="number">722</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>这个问题在TOMCAT中的spring-web的加载问题。主要是jar包并没有真正导入WEB-INF/lib中，一般做测试直接把环境配置的jar包放入这个lib中，但是做项目时会引用在build path 中选用user library，里面自己配置的spring-web……的jar包，所以需要再加一步操作，把jar导入WEB-INF/lib。需要的操作如图所示。右键单击自己的项目，点击properties-Deployment Assembly-add-java  build path entries添加自己需要的jar包，并且点击Apply<br>步骤图片如下所示<br><img src="/2018/11/07/SSH-1/1.PNG" alt=""><br><img src="/2018/11/07/SSH-1/2.PNG" alt=""><br><img src="/2018/11/07/SSH-1/3.PNG" alt=""><br><img src="/2018/11/07/SSH-1/4.PNG" alt=""></p>
+<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>这个问题在TOMCAT中的spring-web的加载问题。主要是jar包并没有真正导入WEB-INF/lib中，一般做测试直接把环境配置的jar包放入这个lib中，但是做项目时会引用在build path 中选用user library，里面自己配置的spring-web……的jar包，所以需要再加一步操作，把jar导入WEB-INF/lib。需要的操作如图所示。右键单击自己的项目，点击properties-Deployment Assembly-add-java  build path entries添加自己需要的jar包，并且点击Apply<br>步骤图片如下所示<br><img src="/2018/11/07/SSH-1/1.PNG" alt=""><br><img src="/2018/11/07/SSH-1/2.PNG" alt=""><br><img src="/2018/11/07/SSH-1/3.PNG" alt=""><br><img src="/2018/11/07/SSH-1/4.PNG" alt=""><br><a id="more"></a></p>
 
       
     </div>
@@ -351,6 +379,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SSH项目/" rel="tag"># SSH项目</a>
+          
+        </div>
       
 
       
@@ -463,7 +497,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -474,7 +508,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -551,6 +585,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>访问总量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
