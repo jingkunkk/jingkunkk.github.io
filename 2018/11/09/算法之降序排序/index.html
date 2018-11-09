@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="靖坤的小博">
 <meta property="og:description" content="算法之两种降序排序First123456789101112131415161718192021public static void main(String[] args)&amp;#123;		int a[] = &amp;#123;1,5,10,20,32,22,2,4,3,25&amp;#125;;		int tmp,i,j;	for( i = 0; i&amp;lt;a.length-1; i++)		&amp;#123;			f">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-09T06:44:31.713Z">
+<meta property="og:updated_time" content="2018-11-09T06:49:50.930Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法之降序排序">
 <meta name="twitter:description" content="算法之两种降序排序First123456789101112131415161718192021public static void main(String[] args)&amp;#123;		int a[] = &amp;#123;1,5,10,20,32,22,2,4,3,25&amp;#125;;		int tmp,i,j;	for( i = 0; i&amp;lt;a.length-1; i++)		&amp;#123;			f">
@@ -361,12 +361,15 @@
 <h3 id="算法分析："><a href="#算法分析：" class="headerlink" title="算法分析："></a>算法分析：</h3><p>是让两两相邻的两个数做比较<br>              大的值放前面，小的值放后面，最小的数会移到最后面<br>                 第一次需要相邻比较9次<br>                第二次需要相邻比较8次<br>                 ···<br>              第九次只需要相邻比较1次</p>
 <h2 id="Second"><a href="#Second" class="headerlink" title="Second"></a>Second</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> a[] = &#123;<span class="number">1</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">20</span>,<span class="number">32</span>,<span class="number">22</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">25</span>&#125;;</span><br><span class="line">		<span class="keyword">int</span> b[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">		<span class="keyword">int</span> tmp,i,j,max;</span><br><span class="line">		b[<span class="number">0</span>] = a[<span class="number">0</span>];</span><br><span class="line">		<span class="keyword">for</span>(i = <span class="number">1</span>;i&lt;a.length;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			max = a[i];</span><br><span class="line">			<span class="keyword">for</span>(j = i-<span class="number">1</span>; j&gt;=<span class="number">0</span>; j--)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(max &gt; b[j])</span><br><span class="line">				&#123;</span><br><span class="line">					b[j+<span class="number">1</span>] = b[j];</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			b[j+<span class="number">1</span>] = max;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;b.length;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(b[i]);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>需要增加一个数组</p>
-<pre><code>* 1.现将第一个元素存在b[]数组内
-* 2.外部循环也需要9次，依次取第i个元素，假设它成为最大元素
-* 3.相邻两个元素比较，大的放前面，小的放后面，第一次只有两个相邻元素，只需要比较一次
-* 4.第二次比较是与相邻的元素比较(但这个数据中相邻的元素一定比较小)，所以可以节省比较次数。  
-* 5.减少算法复杂度
-</code></pre>
+<ul>
+<li>1.现将第一个元素存在b[]数组内</li>
+<li>2.外部循环也需要9次，依次取第i个元素，假设它成为最大元素</li>
+<li>3.相邻两个元素比较，大的放前面，小的放后面，第一次只有两个相邻元素，只需要比较一次</li>
+<li>4.第二次比较是与相邻的元素比较(但这个数据中相邻的元素一定比较小)，所以可以节省比较次数。</li>
+<li>5.减少算法复杂度<a id="more"></a>
+</li>
+</ul>
+
       
     </div>
     
